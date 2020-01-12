@@ -3,7 +3,6 @@ import {Col, Container, Row} from "react-bootstrap";
 import {faFacebook, faYoutube} from "@fortawesome/free-brands-svg-icons";
 import {faEnvelope, faPhone, faMapMarker, faMapMarkedAlt, faIdCard} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {Link} from "react-router-dom";
 
 class Footer extends Component {
     render() {
@@ -20,7 +19,7 @@ class Footer extends Component {
                            </Col>
                            <Col lg={3} md={6} sm={12} className="p-5 text-justify">
                                <h1 className="footerTitle">ADDRESS</h1>
-                               <a className="footerSubTitle" href="/address"><FontAwesomeIcon icon={faMapMarkedAlt}/> Banomala Road, Tongi, Gazipur</a><br/>
+                               <a className="footerSubTitle" href="/"><FontAwesomeIcon icon={faMapMarkedAlt}/> Banomala Road, Tongi, Gazipur</a><br/>
                                <a className="footerSubTitle" href="/"><FontAwesomeIcon icon={faEnvelope}/>  gonit-carca-kendra@gmail.com</a><br/>
                                <a className="footerSubTitle" href="/"><FontAwesomeIcon icon={faPhone}/> 01799141479</a>
                            </Col>
