@@ -5,6 +5,9 @@ import Course from "../component/Course/Course";
 import Footer from "../component/Footer/Footer";
 
 class CoursePage extends Component {
+    componentDidMount() {
+        window.scrollTo(0, 0);
+    }
     render() {
         return (
             <Fragment>

@@ -1,12 +1,10 @@
 import React, {Component, Fragment} from 'react';
-import { Card, Col, Container, Row} from "react-bootstrap";
-import {Link} from "react-router-dom";
 import RestClient from "../../restAPI/RestClient";
 import AppUrl from "../../restAPI/AppUrl";
+import {Card, Col, Container, Row} from "react-bootstrap";
 import Loading from "../Loading/Loading";
 
-
-class Course extends Component {
+class Notice extends Component {
     constructor() {
         super();
         this.state={
@@ -15,10 +13,8 @@ class Course extends Component {
         }
     }
     componentDidMount() {
-        RestClient.GetRequest(AppUrl.courses).then(result=>{
+        RestClient.GetRequest(AppUrl.notice).then(result=>{
             this.setState({myData:result, loading:false})
-
-            console.log(result);
         })
     }
 
@@ -28,34 +24,31 @@ class Course extends Component {
         else {
             const courseList = this.state.myData;
             const view = courseList.map(courseList=>{
-                return  (<Col sm={12} md={6} lg={4} className="p-2">
+                return  (<Col sm={12} md={12} lg={12} className="p-2">
                     <div>
-                        <Link to={"/course-details/"+courseList.id}><Card className="card">
+                        <Card className="card">
                             <Card.Body>
-                                <Card.Title className="title">{courseList.title}</Card.Title>
-                                <Card.Text className="subtitle">
+                                <Card.Title className="titleNotice text-center">{courseList.title}</Card.Title>
+                                <Card.Text className="subtitleNotice text-center">
                                     {courseList.subtitle}
                                 </Card.Text>
 
                             </Card.Body>
                         </Card>
-                        </Link>
                     </div>
                 </Col>)
             })
             return (
                 <Fragment>
-                    <Container className="course">
+                    <Container className="notice">
                         <Row className="mt-5 mb-5">
                             {view}
                         </Row>
                     </Container>
                 </Fragment>
             );
-
         }
     }
-
 }
 
-export default Course;
+export default Notice;

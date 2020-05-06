@@ -1,43 +1,52 @@
 import React, {Component, Fragment} from 'react';
 import {Button, Col, Container, Form, Row} from "react-bootstrap";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faEnvelope, faPhone} from "@fortawesome/free-solid-svg-icons";
+import RestClient from "../../restAPI/RestClient";
+import AppUrl from "../../restAPI/AppUrl";
 
 class Contact extends Component {
+
+    sendContact(){
+            let name =document.getElementById("name").value;
+            let mobile = document.getElementById("mobile").value;
+            let msg = document.getElementById("msg").value;
+
+            let JsonObject = {name:name, mobile:mobile, msg:msg}
+
+            RestClient.PostRequest(AppUrl.contact, JSON.stringify(JsonObject)).then(result=>{
+                alert("Message Sent Successful");
+            }).catch(error=>{
+                alert("Message Sent Failed!");
+            })
+
+}
     render() {
         return (
             <Fragment>
                 <Container className="mt-5">
                     <Row>
-                        <Col lg={6} md={6} sm={12}>
-                            <h1 className="serviceName">Quick Connect</h1>
+                        <Col lg={12} md={12} sm={12}>
+                            <h1 className="serviceName">বার্তা পাঠান</h1>
+                            <br/>
                             <Form>
                                 <Form.Group>
-                                    <Form.Label className="serviceDescription">Name</Form.Label>
-                                    <Form.Control type="text"/>
+                                    <Form.Label className="serviceDescription">আপনার নাম</Form.Label>
+                                    <Form.Control id="name" type="text"/>
                                 </Form.Group>
 
                                 <Form.Group>
-                                    <Form.Label className="serviceDescription">Email Address</Form.Label>
-                                    <Form.Control type="email"/>
+                                    <Form.Label className="serviceDescription">আপনার মোবাইম নাম্বার</Form.Label>
+                                    <Form.Control id="mobile" type="text"/>
                                 </Form.Group>
 
                                 <Form.Group>
-                                    <Form.Label className="serviceDescription">Message</Form.Label>
-                                    <Form.Control as="textarea" rows="3"/>
+                                    <Form.Label className="serviceDescription">বার্তা</Form.Label>
+                                    <Form.Control id="msg" as="textarea" rows="3"/>
                                 </Form.Group>
 
-                                <Button variant="primary" type="submit">
-                                    Submit
+                                <Button onClick={() => this.sendContact()} variant="primary">
+                                    প্রেরণ করুন
                                 </Button>
                             </Form>
-                        </Col>
-
-                        <Col lg={6} md={6} sm={12}>
-                            <h1 className="serviceName">Discuss Now</h1>
-                            <p className="serviceDescription">Banomala Road, Tongi, Gazipur</p>
-                            <p className="serviceDescription"><FontAwesomeIcon icon={faEnvelope}/> gonit-carca-kendra@gmail.com</p>
-                            <p className="serviceDescription"><FontAwesomeIcon icon={faPhone}/> 01799141479</p>
                         </Col>
                     </Row>
                 </Container>

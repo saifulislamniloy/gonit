@@ -27,7 +27,7 @@ class TopBanner extends Component {
                                    <h4 className="subTitle">সকল বিষয়ই পড়ানো হয়  </h4>
                                </Container>
                                <Container className="text-center topContentMargin">
-                                   <h1 className="title ">Gonit Corca Kendro</h1>
+                                   <h1 className="title">Gonit Corca Kendro</h1>
                                    <h4 className="subTitle">!! Don't be surprised !!</h4>
                                    <h4 className="subTitle">Every subject will be covered</h4>
                                </Container>

@@ -1,10 +1,10 @@
 import React, {Component, Fragment} from 'react';
 import TopNavigation from "../component/TopNavigation/TopNavigation";
 import TopBanner2 from "../component/TopBanner/TopBanner2";
-import Contact from "../component/Contact/Contact";
 import Footer from "../component/Footer/Footer";
+import Terms from "../component/Others/Terms";
 
-class ContactPage extends Component {
+class TermsPage extends Component {
     componentDidMount() {
         window.scrollTo(0, 0);
     }
@@ -13,11 +13,11 @@ class ContactPage extends Component {
             <Fragment>
                 <TopNavigation/>
                 <TopBanner2/>
-                <Contact/>
+                <Terms/>
                 <Footer/>
             </Fragment>
         );
     }
 }
 
-export default ContactPage;
+export default TermsPage;
