@@ -39,7 +39,7 @@ class TopNavigation extends Component {
             <Fragment>
                 <Container className="topNavigation">
                     <Navbar className={this.state.navBarBack}  variant={this.state.navVariant}  fixed="top" collapseOnSelect expand="lg">
-                        <Navbar.Brand href="/" className={this.state.navBarTitle}><img src="https://yt3.ggpht.com/a/AGF-l79T_QzngyNjKYQlDBoI-NLOOyiHepal5bf6PQ=s288-c-k-c0xffffffff-no-rj-mo" height="32" width="32" alt="Smiley face"/>  গনিত চর্চা কেন্দ্র</Navbar.Brand>
+                        <Navbar.Brand href="/" className={this.state.navBarTitle}><img src="https://yt3.ggpht.com/a/AGF-l79T_QzngyNjKYQlDBoI-NLOOyiHepal5bf6PQ=s288-c-k-c0xffffffff-no-rj-mo" height="32" width="32" alt="Smiley face"/>  গণিত চর্চা কেন্দ্র</Navbar.Brand>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav" >
                             <Nav className="mr-auto">

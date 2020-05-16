@@ -22,9 +22,9 @@ class TopBanner extends Component {
                        <Container>
                            <Slider {...settings}>
                                <Container className="text-center topContentMargin">
-                                   <h1 className="title">গনিত চর্চা কেন্দ্র</h1>
+                                   <h1 className="title">গণিত চর্চা কেন্দ্র</h1>
                                    <h4 className="subTitle">!! অবাক হবেন না !!</h4>
-                                   <h4 className="subTitle">সকল বিষয়ই পড়ানো হয়  </h4>
+                                   <h4 className="subTitle">সকল বিষয়-ই পড়ানো হয়  </h4>
                                </Container>
                                <Container className="text-center topContentMargin">
                                    <h1 className="title">Gonit Corca Kendro</h1>
