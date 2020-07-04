@@ -15,5 +15,6 @@ class AppUrl {
     static subject = this.BaseURL+"/subject";
     static chapter = this.BaseURL+"/chapter";
     static video = this.BaseURL+"/video";
+    static banner = this.BaseURL+"/banner";
 }
 export default AppUrl;

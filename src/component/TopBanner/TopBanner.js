@@ -3,8 +3,53 @@ import {Container} from "react-bootstrap";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import RestClient from '../../restAPI/RestClient';
+import AppUrl from '../../restAPI/AppUrl';
+import BannerData from '../../localStorage/BannerData';
 
 class TopBanner extends Component {
+    constructor() {
+        super();
+        this.state = {
+            bannerView: "",
+            loading: true
+        }
+    }
+    componentDidMount() {
+        if (BannerData.bannerDataLoaded()===true) {
+            let result = BannerData.getBannerData()
+            const bannerView = result.map(result => {
+                return (
+                    <Container className="text-center topContentMargin">
+                        <h1 className="title">{result.title}</h1>
+                        <h4 className="subTitle">{result.subtitle}</h4>
+                        <h4 className="subTitle">{result.subtitle2}</h4>
+                    </Container>
+                )
+            })
+            this.setState({ bannerView: bannerView, loading: false })     
+        } else {
+            RestClient.GetRequest(AppUrl.banner)
+                .then(result => {
+                    const bannerView = result.map(result => {
+                        return (
+                            <Container className="text-center topContentMargin">
+                                <h1 className="title">{result.title}</h1>
+                                <h4 className="subTitle">{result.subtitle}</h4>
+                                <h4 className="subTitle">{result.subtitle2}</h4>
+                            </Container>
+                        )
+                    })
+                    this.setState({ bannerView: bannerView, loading: false })     
+                    BannerData.setBannerData(JSON.stringify(result))
+                })
+        }
+    }
+
+    activateLoader = () => {
+        if (this.state.loading === true)
+            return <div className="loader"></div>
+    }
     render() {
         const settings = {
             dots: true,
@@ -21,16 +66,8 @@ class TopBanner extends Component {
                    <Container fluid={true} className="banner ">
                        <Container>
                            <Slider {...settings}>
-                               <Container className="text-center topContentMargin">
-                                   <h1 className="title">গণিত চর্চা কেন্দ্র</h1>
-                                   <h4 className="subTitle">!! অবাক হবেন না !!</h4>
-                                   <h4 className="subTitle">সকল বিষয়-ই পড়ানো হয়  </h4>
-                               </Container>
-                               <Container className="text-center topContentMargin">
-                                   <h1 className="title">Gonit Corca Kendro</h1>
-                                   <h4 className="subTitle">!! Don't be surprised !!</h4>
-                                   <h4 className="subTitle">Every subject will be covered</h4>
-                               </Container>
+                                {this.activateLoader()}
+                                {this.state.bannerView}
                            </Slider>
                        </Container>
                    </Container>
