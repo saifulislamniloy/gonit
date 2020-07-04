@@ -26,7 +26,7 @@ class BlogDetailsPage extends Component {
         })
     }
     render() {
-        if (this.state.loading == true){
+        if (this.state.loading === true){
             return(
                 <Fragment>
                     <TopNavigation/>

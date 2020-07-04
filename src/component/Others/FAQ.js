@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react';
-import {Card, Col, Container, Row} from "react-bootstrap";
+import {Col, Container, Row} from "react-bootstrap";
 import ReactHtmlParser from "react-html-parser";
 import RestClient from "../../restAPI/RestClient";
 import AppUrl from "../../restAPI/AppUrl";
@@ -23,13 +23,12 @@ class Faq extends Component {
 
     }
     convertData() {
-        let data = this.state.faqData;
         let convertedData = stateToHTML(convertFromRaw(JSON.parse(this.state.faqData)));
         this.setState({faqData:convertedData})
     }
 
     render() {
-        if (this.state.loading == true)
+        if (this.state.loading === true)
             return <Loading/>
         else {
             return (

@@ -4,6 +4,7 @@ import ReactHtmlParser from "react-html-parser";
 class CourseDetails extends Component {
     constructor(props) {
         super(props);
+        this.state={}
     }
     render() {
         let topic = "";

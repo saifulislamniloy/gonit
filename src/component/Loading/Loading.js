@@ -9,7 +9,7 @@ class Loading extends Component {
                 <Container className="text-center">
                     <Row>
                         <Col>
-                            <img src={loading}/>
+                            <img src={loading} alt="smiley"/>
                         </Col>
                     </Row>
                 </Container>

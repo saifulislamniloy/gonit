@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react';
-import {Button, Card, Col, Container,  Nav, Navbar, Row} from "react-bootstrap";
+import {Card, Col, Container,  Nav, Navbar, Row} from "react-bootstrap";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import RestClient from "../../restAPI/RestClient";
 import AppUrl from "../../restAPI/AppUrl";
@@ -101,13 +101,13 @@ class VideoTutorial extends Component {
         this.setState({link:s, playingVideoTitle:p})
     }
     render() {
-        if (this.state.loading == true){
+        if (this.state.loading === true){
             return(
                 <Fragment>
                     <Container>
                         <Row className="video">
                             <Col lg={6} md={6} sm={12}>
-                                <iframe className="player" src={"https://www.youtube.com/embed/"+this.state.link} frameBorder="0"
+                                <iframe className="player" title="title" src={"https://www.youtube.com/embed/"+this.state.link} frameBorder="0"
                                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                         allowFullScreen></iframe>
                             </Col>
@@ -156,7 +156,7 @@ class VideoTutorial extends Component {
                     <Container>
                         <Row className="video">
                             <Col lg={6} md={6} sm={12}>
-                                <iframe className="player" src={"https://www.youtube.com/embed/"+this.state.link} frameBorder="0"
+                                <iframe className="player" title="title" src={"https://www.youtube.com/embed/"+this.state.link} frameBorder="0"
                                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                         allowFullScreen></iframe>
                                 <h6>{this.state.playingVideoTitle}</h6>

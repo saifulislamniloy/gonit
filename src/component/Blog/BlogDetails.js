@@ -7,6 +7,8 @@ import {convertFromRaw} from "draft-js";
 class BlogDetails extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+        }
     }
 
 
@@ -15,7 +17,7 @@ class BlogDetails extends Component {
         let writer = "";
         let blog = "";
         let blogDetailsArray = this.props.blogData;
-        if(blogDetailsArray.length == 1){
+        if(blogDetailsArray.length === 1){
             title = blogDetailsArray[0]['title'];
             writer = blogDetailsArray[0]['writer'];
             blog = stateToHTML(convertFromRaw(JSON.parse(blogDetailsArray[0]['text'])));

@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import RestClient from "../../restAPI/RestClient";
 import AppUrl from "../../restAPI/AppUrl";
-import {Card, Col, Container, Row} from "react-bootstrap";
+import {Col, Container, Row} from "react-bootstrap";
 import {stateToHTML} from 'draft-js-export-html';
 import { convertFromRaw } from 'draft-js';
 import ReactHtmlParser from "react-html-parser";
@@ -23,14 +23,13 @@ class About extends Component {
 
     }
     convertData() {
-        let data = this.state.aboutData;
         let convertedData = stateToHTML(convertFromRaw(JSON.parse(this.state.aboutData)));
         this.setState({aboutData:convertedData})
     }
 
 
     render() {
-        if (this.state.loading == true)
+        if (this.state.loading === true)
             return <Loading/>
         else {
             return (

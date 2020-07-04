@@ -23,7 +23,7 @@ class Course extends Component {
     }
 
     render() {
-        if (this.state.loading == true)
+        if (this.state.loading === true)
             return <Loading/>
         else {
             const courseList = this.state.myData;

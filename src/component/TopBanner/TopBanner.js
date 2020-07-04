@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import RestClient from '../../restAPI/RestClient';
 import AppUrl from '../../restAPI/AppUrl';
 import BannerData from '../../localStorage/BannerData';
+import Loading from '../Loading/Loading';
 
 class TopBanner extends Component {
     constructor() {
@@ -48,7 +49,7 @@ class TopBanner extends Component {
 
     activateLoader = () => {
         if (this.state.loading === true)
-            return <div className="loader"></div>
+            return <Loading/>
     }
     render() {
         const settings = {
