@@ -6,6 +6,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import RestClient from "../../restAPI/RestClient";
 import AppUrl from "../../restAPI/AppUrl";
 import {Link} from "react-router-dom";
+import FooterData from '../../localStorage/FooterData';
 
 class Footer extends Component {
     constructor() {
@@ -15,9 +16,15 @@ class Footer extends Component {
         }
     }
     componentDidMount() {
-        RestClient.GetRequest(AppUrl.footer).then(fresult=>{
-            this.setState({footerData:fresult});
-        })
+        if(FooterData.footerDataLoaded() === false){
+            RestClient.GetRequest(AppUrl.footer).then(fresult=>{
+                this.setState({footerData:fresult});
+                FooterData.setFooterData(JSON.stringify(fresult))
+            })
+        }else{
+            this.setState({footerData:FooterData.getFooterData()});
+        }
+
     }
     render() {
         let facebookLink ="";

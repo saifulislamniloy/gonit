@@ -17,8 +17,6 @@ class Course extends Component {
     componentDidMount() {
         RestClient.GetRequest(AppUrl.courses).then(result=>{
             this.setState({myData:result, loading:false})
-
-            console.log(result);
         })
     }
 
