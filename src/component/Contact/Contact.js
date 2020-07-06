@@ -6,17 +6,20 @@ import AppUrl from "../../restAPI/AppUrl";
 class Contact extends Component {
 
     sendContact(){
-            let name =document.getElementById("name").value;
-            let mobile = document.getElementById("mobile").value;
-            let msg = document.getElementById("msg").value;
-
-            let JsonObject = {name:name, mobile:mobile, msg:msg}
-
-            RestClient.PostRequest(AppUrl.contact, JSON.stringify(JsonObject)).then(result=>{
-                alert("Message Sent Successful");
-            }).catch(error=>{
-                alert("Message Sent Failed!");
-            })
+            alert("This feature is currently unavailable")
+            if(0){
+                let name =document.getElementById("name").value;
+                let mobile = document.getElementById("mobile").value;
+                let msg = document.getElementById("msg").value;
+    
+                let JsonObject = {name:name, mobile:mobile, msg:msg}
+    
+                RestClient.PostRequest(AppUrl.contact, JSON.stringify(JsonObject)).then(result=>{
+                    alert("Message Sent Successful");
+                }).catch(error=>{
+                    alert("Message Sent Failed!");
+                })
+            }
 
 }
     render() {
